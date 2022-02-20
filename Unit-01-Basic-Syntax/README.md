@@ -25,6 +25,12 @@ Use the keyword *fun* to declare a function. Parameters can have default values.
         return "Sum is ${a+b}"
     }
     
+### Unit-Returning Function
+If you want to make a function to not return anything useful, use *Unit* as a return type. OR you can just omit it, since the default return type considered by the Kotlin compiler is Unit.
+
+    fun hello: Unit { println("Hello Kotlin~") }   // These two are the same functions.
+    fun hello: { println("Hello Kotlin~") }
+    
 ## Keywords
 ### Unit
 **Unit** in Kotlin is a type returning nothing, which is similar to *void* in Java. The only value it can have is Unit. (Expression like Unit? is not available.) Moreover, it can be used in generic functions, while Java users should choose Void instead of void.
