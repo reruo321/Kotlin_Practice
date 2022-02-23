@@ -121,3 +121,46 @@ you would feel relieved.
           }
        }
     }
+
+## Backing Field
+For data class, Kotlin compiler generates a getter for val property, and both a getter and a setter for var property. Kotlin uses a Java field to store the property values, which is called **backing field**.
+
+Suppose that we create some custom accessors. Let's make a simple getter for *val isNoisy*, and a setter for *var legnum*. You might try to imitate an example from Internet like this...
+
+    data class Animal(val sound: String){
+        val isNoisy: Boolean
+        get() = (sound.length > 5)
+        var legnum: Int = 0
+        set(value){
+            println("Setter is called.")
+                legnum = value
+        }
+    }
+
+    fun main(){
+        val ani = Animal("COCK-A-DOODLE-DOO!")
+        ani.legnum = 2
+        println("The animal has " + ani.legnum + " legs and sounds " + ani.sound)
+        if(ani.isNoisy)
+            println("Be careful! It is noisy.")
+    }
+
+Good! Almost done but however, it will get into the infinite loop and cause an exception, StackOverflowError. What's wrong with it?
+
+    set(value){
+        println("Setter is called.")
+            legnum = value
+    }
+    
+You may notice there were too many "Setter is called." prints for your console. Actually, there is a small problem with the setter. It continuously calls *legnum*. When you called the setter for the first time,
+
+    ani.legnum = 2
+    
+It tried to call *legnum* which makes another call of the setter, and so on. We were trying to set the field inside the setter itself!
+
+        set(value){
+        println("Setter is called.")
+            field = value
+    }
+    
+Instead of directly calling it, we can use backing field for this property. It is provided by Kotlin automatically, and we can reference it through *field* keyword.
