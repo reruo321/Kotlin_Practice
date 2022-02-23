@@ -163,4 +163,4 @@ It tried to call *legnum* which makes another call of the setter, and so on. We 
             field = value
     }
     
-Instead of directly calling it, we can use backing field for this property. It is provided by Kotlin automatically, and we can reference it through *field* keyword.
+Instead of directly calling it, we can use backing field for this property. It is provided by Kotlin automatically, so we can reference it through *field* keyword.
