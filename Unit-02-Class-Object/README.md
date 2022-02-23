@@ -158,7 +158,7 @@ You may notice there were too many "Setter is called." prints for your console. 
     
 It tried to call *legnum* which makes another call of the setter, and so on. We were trying to set the field inside the setter itself!
 
-        set(value){
+    set(value){
         println("Setter is called.")
             field = value
     }
