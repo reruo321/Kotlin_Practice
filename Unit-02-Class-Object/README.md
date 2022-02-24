@@ -156,7 +156,7 @@ You may notice there were too many "Setter is called." prints for your console. 
 
     ani.legnum = 2
     
-It tried to call *legnum* which makes another call of the setter, it called it again, and so on. We were trying to set the field inside the setter itself!
+It tried to call *legnum* which makes another call of the setter, called by itself, again and again. We were trying to set the field inside the setter itself!
 
     set(value){
         println("Setter is called.")
