@@ -12,7 +12,7 @@ Loop in Kotlin has a little bit unique syntax. Use **for(VAR: TYPE in A..B)** fo
 
     for(i: Int in 1..5){ println(i) }
     
-And if you print odd numbers from 1 to 10, add **step N**. (2 in the example)
+And if you print odd numbers from 1 to 10, add **step N**. (N=2 in the example)
 
     for(i: Int in 1..10 step 2){ println(i) }
 
