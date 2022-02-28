@@ -6,7 +6,15 @@ To assign an array, use **arrayOf\<TYPE\>(ELEMENTS)** like this.
 If you want to get an array as a parameter, try this out.
   
     fun myFunction(arr: Array<Int>){...}
-  
+
+To convert a Vector to an array, use toTypedArray().
+
+    import java.util.Vector
+    
+    var vec = Vector<Int>()
+    ...
+    var arr = vec.toTypedArray()
+
 # Loop
 Loop in Kotlin has a little bit unique syntax. Use **for(VAR: TYPE in A..B)** format. For example if you count from 1 to 5 using a for loop,
 
