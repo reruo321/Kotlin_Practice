@@ -14,6 +14,12 @@ To convert a Vector to an array, use toTypedArray().
     var vec = Vector<Int>()
     ...
     var arr = vec.toTypedArray()
+    
+Let's take another step towards the Kotlin world. It would be quite useful for example when you want to create an Int array by taking integer inputs, split by space.
+
+One more tip! Instead of converting each String-type number to Int with a for loop, just use **map**. It will convert all elements in the String list into integers. After using toTypedArray(), the list will be finally the array of Ints.
+
+    val arr = readLine()!!.split(" ").map{ it.toInt() }.toTypedArray()
 
 # Loop
 Loop in Kotlin has a little bit unique syntax. Use **for(VAR: TYPE in A..B)** format. For example if you count from 1 to 5 using a for loop,
