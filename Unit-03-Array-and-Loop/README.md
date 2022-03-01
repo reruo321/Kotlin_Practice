@@ -29,7 +29,7 @@ One more tip! Instead of converting each String-type number to Int with a for lo
 You perhaps have used a customary array printing format using for loop in several languages, to submit the output to some online judges such as Baekjoon(백준).
 
     // Like this
-    for(i: Int in 0..arr.size-1) print("$num ")
+    for(i: Int in 0..arr.size-1) print("${arr[i]} ")
     println()
     
     // OR
