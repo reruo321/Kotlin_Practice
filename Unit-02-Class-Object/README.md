@@ -122,6 +122,13 @@ you would feel relieved.
        }
     }
 
+## Constructor
+Of course Kotlin also supports constructor, but it is divided into two: Primary and Secondary.
+
+**Primary constructor** is initialized in the class header, goes after the class name, using the constructor keyword. The keyword can be omitted if there is no annotations or specified access modifiers. A Kotlin class can have at most one primary constructor.
+
+    class Animal constructor(val height: Int, val sound: String){...}
+
 ## Backing Field
 For data class, Kotlin compiler generates a getter for val property, and both a getter and a setter for var property. Kotlin uses a Java field to store the property values, which is called **backing field**.
 
