@@ -131,7 +131,7 @@ Of course Kotlin also supports constructor, but it is divided into two: Primary 
     class Animal constructor(val height: Int, val sound: String){...}
 
 ### Init Block
-Then where should we put the statements for initialization? Use **init block** to do this! The statements in the block becomes part of the primary constructor.
+Then where should we put the statements for initialization? Use **init block** to do this! The statements in the block becomes part of the primary constructor. Also a class with no primary constructor is allowed to execute codes in the init block.
 
     class Animal constructor(val height: Int, val sound: String){
         init{
@@ -143,6 +143,24 @@ Then where should we put the statements for initialization? Use **init block** t
 Now let's talk about another constructor. **Secondary constructor** is the literally secondary constructor, and a class can have one or more of them. It uses **constructor** keyword, too.
 
 If a primary constructor is already declared, each secondary should delegate to the primary one, either directly or indirectly through another secondary constructor(s). Use **this** to do it.
+
+    class SuperMarket(val basket: MutableList<Fruit> = mutableListOf())
+
+    class Fruit{
+        constructor(market: SuperMarket){
+            market.basket.add(this)
+        }
+    }
+
+    fun main(){
+        val market = SuperMarket()
+        val apple = Fruit(market)
+        val banana = Fruit(market)
+        val grape = Fruit(market)
+        println(market.basket.size)
+    }
+    
+Also, even if there is no primary constructor, the delegation still happens implicitly.
 
     class Animal
     {
