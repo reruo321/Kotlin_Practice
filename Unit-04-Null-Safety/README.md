@@ -13,8 +13,21 @@ The interesting point is, it can also return the result.
         i }
     println(a)   // This prints 5.
 
+By using "Nesting let", we can set a let expression inside another let expression. We cannot use *it* keyword, but instead need to assign explicit names to them.
 
+    var str = "Hello"
+    str.let{ first -> first.let { second -> println("First: $first, Second: $second") } }
+    // Prints
+    // First: Hello, Second: Hello
 
+If the expression is nesting let, only the outermost one returns the value.
+
+    var str = "Hello"
+    str = str.let{ first - > first.let{ second -> println("First: $first, Second: $second")
+                                        "Hi" }
+                                "Bye" }
+    println(str)   // Bye                                
+                                
 ## also
 ## run
 ## apply
