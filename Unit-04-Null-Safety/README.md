@@ -55,3 +55,18 @@ An **also** expression is similar to let, but the biggest difference is that *al
     println(animal)   // Animal(name=Cat, leg=4)
 
 ## with
+**with** is used to change instance properties like *apply*, but without dot operator.
+
+    data class Animal(var name: String, var leg: Int)
+    var animal = Animal("Dog", 4)
+    
+    with(animal){ name = "Cat" }
+    println(animal)
+
+Two expressions *apply* and *with* seem to be the same, but here are some differences between them.
+
+| | apply | with |
+| :-: | :-: | :-: |
+| **object** | Need | Do not need |
+| **running** | Runs on the object reference | Passes the object reference as an argument |
+| **return** | The original object reference | The result |
