@@ -2,7 +2,7 @@
 ## let
 To make a conditional operation works only for non-null values, use **let** with a safe call operator.
 
-    쵀child?.let { println(it.name) }   // If child is not null, it will print its name.
+    child?.let { println(it.name) }   // If child is not null, it will print its name.
                                         // Otherwise, ignores printing.
                                         
 The interesting point is, it can also return the result in the final statement. (If no specified return, it just returns unit. (nothing))
@@ -31,6 +31,19 @@ If the expression is nesting let, only the outermost one returns the value.
 ## also
 An **also** expression is similar to let, but the biggest difference is that *also* returns the original object (context object), instead of any new return data. (lambda result)
 
+    var a = 1
+    a = a.also{ it + 1 }.also{ it + 2 }
+    println(a)   // Prints 1.
+
 ## run
+**run** is the other expression resembles let, and it also returns the last statement. However, it does not support *it* keyword.
+
+    var hello = "Hello"
+    println(hello)   // Hello
+    hello = run{ val hello = "Hi"
+            hello
+            }
+    println(hello)   // Hi
+
 ## apply
 ## with
