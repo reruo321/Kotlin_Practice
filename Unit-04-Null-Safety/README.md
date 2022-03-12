@@ -28,15 +28,8 @@ If the expression is nesting let, only the outermost one returns the value.
                                 "Bye" }
     println(str)   // Bye                                
                                 
-## also
-An **also** expression is similar to let, but the biggest difference is that *also* returns the original object (context object), instead of any new return data. (lambda result)
-
-    var a = 1
-    a = a.also{ it + 1 }.also{ it + 2 }
-    println(a)   // Prints 1.
-
 ## run
-**run** is the other expression resembles let, and it also returns the last statement. However, it does not support *it* keyword.
+**run** is the expression resembles let, and it also returns the last statement. However, it does not support *it* keyword.
 
     var hello = "Hello"
     println(hello)   // Hello
@@ -45,5 +38,20 @@ An **also** expression is similar to let, but the biggest difference is that *al
             }
     println(hello)   // Hi
 
+## also
+An **also** expression is similar to let, but the biggest difference is that *also* returns the original object (context object), instead of any new return data. (lambda result)
+
+    var a = 1
+    a = a.also{ it + 1 }.also{ it + 2 }
+    println(a)   // Prints 1.
+
 ## apply
+**apply** is an extension function on a type, running on the object reference into the expression and returning it. It does not support *it*, unlike *also*.
+
+    data class Animal(var name: String, var leg: Int)
+    var animal = Animal("Dog", 4)
+    
+    animal.apply{ name = "Cat" }   // If it were also, it.name = "Cat"
+    println(animal)   // Animal(name=Cat, leg=4)
+
 ## with
