@@ -1,6 +1,26 @@
 # Null Safety
 One of the key features Kotlin has is **null safety**. To remove the threat of null references, Kotlin's type system focuses on it.
 
+## Safe calls
+If you are familiar with other languages, you might try to avoid null using "condition ? then : else".
+
+(Wait! You should use if expression since there's no ternary conditional operator in Kotlin.)
+
+    val str: String? = "Hello"
+    val len = if (str != null) str.length else -1
+    println(len)
+
+The check seems okay to the immutable variable, *val*. However, it may bring disaster if the checking variable can be modified between the check and its usage.
+
+Let's see another option, which uses the safe call operator, **?.**
+
+    val str: String? = "Hello"
+    println(str?.length)
+
+If *str* is not null, it prints its length, otherwise null. This can be used in chain.
+
+    println(nation?.city?.person?.name)
+
 ## !! Operator
 **!!** is the not-null assertion operator, which converts any value to a non-null type and throws an exception if the value is null. It allows us to be 100% sure that the value is not null.
 
