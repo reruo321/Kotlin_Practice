@@ -1,4 +1,9 @@
 # Null Safety
+One of the key features Kotlin has is **null safety**. To remove the threat of null references, Kotlin's type system focuses on it.
+
+## !! Operator
+**!!** is the not-null assertion operator, which converts any value to a non-null type and throws an exception if the value is null. It allows us to be 100% sure that the value is not null.
+
 ## let
 To make a conditional operation works only for non-null values, use **let** with a safe call operator.
 
