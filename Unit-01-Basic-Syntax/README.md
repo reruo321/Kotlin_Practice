@@ -1,4 +1,54 @@
 # Unit 01. Basic Syntax
+## Main Function
+In Java, we learned that the main method should be always static. By looking at the Kotlin's, we notice that there is no *static* keyword.
+
+    fun main(){
+        println("Hello, main function!")
+    }
+    
+How is this possible? Kotlin functions do not need to be inside classes, so main function does either. The function outside of a class is called **package-level function**, and it is declared as static.
+
+Let's see these package-level functions.
+
+    fun exampleFunction(){
+        println("Hello, example function!")
+    }
+
+    fun main(){
+        println("Hello, main function!")
+    }
+
+If we find them from the decompiled codes,
+
+    public static final void exampleFunction() {
+       String var0 = "Hello, example function!";
+       System.out.println(var0);
+    }
+
+    public static final void main() {
+       String var0 = "Hello, main function!";
+       System.out.println(var0);
+    }
+    
+We know they are declared as static!
+
+One more thing: If the name of the source file is "mainExample.kt",
+
+    public final class MainExampleKt {
+       public static final void exampleFunction() {
+          String var0 = "Hello, example function!";
+          System.out.println(var0);
+       }
+
+       public static final void main() {
+          String var0 = "Hello, main function!";
+          System.out.println(var0);
+       }
+       ...
+    }
+
+We now can see that both functions are included in "MainExampleKt" class.
+
 ## Declaration
 Use *var* for declaring a variable or *val* for read-only local variable.
 The unique thing of Kotlin is: Even if you do not declare them with types, this smart language will infer them automatically.
